@@ -2,6 +2,8 @@ name: What Day Is It?
 on: [push, pull_request]
   #schedule:
   #- cron: "0 0 * * *"
+permissions:
+  contents: write
 jobs:
   set_readme:
      name: set readme
