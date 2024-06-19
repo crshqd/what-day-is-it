@@ -1,8 +1,7 @@
 name: What Day Is It?
 on:
-  push:  # Trigger on push
-  # schedule:
-  # - cron: "0 0 * * *"
+  schedule:
+  - cron: "0 0 * * *"
 permissions:
   contents: write
 jobs:
