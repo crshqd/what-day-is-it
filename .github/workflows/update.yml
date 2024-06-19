@@ -14,7 +14,7 @@ jobs:
      - name: set readme
        run: |
          current_date=$(printf -v date '%(%Y-%m-%d)T\n' -1)
-         sed -i -e "s/<!--TIME BEGIN-->.*<!--TIME END-->/<!--TIME BEGIN-->${current_date}<!--TIME END-->/g" README.md
+         sed -i "s/<!--TIME BEGIN-->.*<!--TIME END-->/<!--TIME BEGIN-->${current_date}<!--TIME END-->/g" README.md
      - uses: stefanzweifel/git-auto-commit-action@v5
        with:
          commit_message: Set Day
