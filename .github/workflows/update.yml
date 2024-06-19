@@ -15,4 +15,4 @@ jobs:
          sed -i -e 's/<!--TIME BEGIN-->/<!--TIME BEGIN-->${current_date}/g' README.md
      - uses: stefanzweifel/git-auto-commit-action@v5
        with:
-         commit-message: Set Day
+         commit_message: Set Day
