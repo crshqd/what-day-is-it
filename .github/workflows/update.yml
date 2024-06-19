@@ -1,21 +1,25 @@
 name: What Day Is It?
-on: [push]
-  #schedule:
-  #- cron: "0 0 * * *"
+on:
+  push:  # Trigger on push
+  # schedule:
+  # - cron: "0 0 * * *"
 permissions:
   contents: write
 jobs:
   set_readme:
-     name: set readme
-     runs-on: ubuntu-22.04
-     steps:
-     - name: checkout repo
-       uses: actions/checkout@v2
-     - name: set readme
-       run: |
-         current_date=$(printf -v date '%(%Y-%m-%d)T\n' -1)
-         sed -i "s/<!--TIME BEGIN-->.*<!--TIME END-->/<!--TIME BEGIN-->${current_date}<!--TIME END-->/g" README.md
-     - uses: stefanzweifel/git-auto-commit-action@v5
-       with:
-         commit_message: Set Day
-         commit_author: github_actions[bot] <github-actions[bot]@users.noreply.github.com>
+    name: set readme
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      
+      - name: set readme
+        run: |
+          current_date=$(printf '%(%Y-%m-%d)T\n' -1)
+          sed -i "s/<!--TIME BEGIN-->.*<!--TIME END-->/<!--TIME BEGIN-->${current_date}<!--TIME END-->/g" README.md
+      
+      - name: commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Set Day"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
