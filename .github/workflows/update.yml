@@ -1,0 +1,13 @@
+name: What Day Is It?
+on:
+  schedule:
+  - cron: "0 0 * * *"
+jobs:
+  set_readme:
+     name: set readme
+     runs-on: ubuntu-22.04
+     steps:
+     - name: set readme
+       run: |
+         current_date=$(date)
+         sed -i -e 's/<!--TIME BEGIN-->/<!--TIME BEGIN-->${current_date}/g' /README.md
