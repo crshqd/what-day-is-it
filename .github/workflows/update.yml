@@ -9,7 +9,5 @@ jobs:
      steps:
      - name: set readme
        run: |
-         ls -l
-         pwd
          current_date=$(date)
-         #sed -i -e 's/<!--TIME BEGIN-->/<!--TIME BEGIN-->${current_date}/g' /README.md
+         sed -i -e 's/<!--TIME BEGIN-->/<!--TIME BEGIN-->${current_date}/g' ./README.md
